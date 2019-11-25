@@ -57,7 +57,7 @@ service postgresql-11 start
 chkconfig postgresql-11 on
 ```
 
-5. Verify PostgreSQL installation  
+5. Verify your PostgreSQL installation  
 
 After completing the above all steps. Your PostgreSQL 11 server is ready to use. Log in to postfix instance to verify the connection  
 
@@ -72,7 +72,7 @@ postgres=#
 
 6. Create ReportPortal user and database
 
-Please run the following commands, having previously determined the name and the password for your ReportPortal db user 
+Please run the following commands, having previously determined the name and password for your ReportPortal db user 
 
 ```sh
 create database reportportal; 
@@ -108,7 +108,9 @@ yum install postgresql11-contrib
 
 9. Install 'pgcrypto' Postgres extension for 'reportportal' database  
 
+```sh
 PGPASSWORD=<your_rpdbuser_password> psql -U <your_rpdbuser> -d reportportal -c "CREATE EXTENSION pgcrypto;"  
+```  
 
 
 #### RabbitMQ Installation and configuration  
@@ -187,8 +189,8 @@ chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/
 Now you will need to create an administrative user for RabbitMQ web management console. Run the following commands for same  
 ```sh
 rabbitmqctl add_user admin StrongPassword
- rabbitmqctl set_user_tags admin administrator
- rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+rabbitmqctl set_user_tags admin administrator
+rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
 ```
 
 5. Configure user, permissions and vhost for ReportPortal
