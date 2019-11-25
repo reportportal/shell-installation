@@ -36,5 +36,6 @@ wget -c -N -O traefik https://github.com/containous/traefik/releases/download/v1
 
 # Traefik configuration file
 
-<Link>
+wget -c -N -O traefik.toml https://raw.githubusercontent.com/reportportal/shell-installation/master/reportportal/traefik.toml
+
 

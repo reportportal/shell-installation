@@ -291,7 +291,7 @@ The output will look similar to the following
 
 ### Download all ReportPortal services & traefik config file
 
-1. Run the following script 'download_services.sh'(<Link>) in order to have all RP services and configuration files on your local system    
+1. Run the following script 'download_services.sh'(https://github.com/reportportal/shell-installation/blob/master/reportportal/download_services.sh) in order to have all RP services and configuration files on your local system    
 
 ```sh
 ./download_services.sh
@@ -322,7 +322,7 @@ SERVICE_API_JAVA_OPTS="-Xms1024m -Xmx2048m"
 SERVICE_UAT_JAVA_OPTS="-Xms512m -Xmx512m"
 ```
 
-2. Run the script
+2. Run the start script (https://github.com/reportportal/shell-installation/blob/master/reportportal/start_rp.sh)
 
 ```sh
 ./start_rp.sh 
