@@ -4,14 +4,16 @@ ReportPortal is a service that provides great capabilities for speeding up resul
 
 This guide is intended to provide you with sufficient information to get started with ReportPortal on CentOS/RHEL Linux distributions with no Docker/Kubernetes usage.  
 
+
 ### Installing ReportPortal requirements  
 
 Before you deploy ReportPortal you should have installed all its dependencies.  
 - `PostgreSQL` 
 - `RabbitMQ`
 - `ElasticSearch`
+  
 
-##### PostgreSQL Installation and configuration   
+#### PostgreSQL Installation and configuration   
 
 In order to install PostgreSQL 11 on your CentOS/RHEL 7/6 systems please follow the steps below.  
 
@@ -96,7 +98,7 @@ local   all             all                                     md5
 host    all             all             127.0.0.1/32            md5
 ```
 
-Restart PostgreSQL service  
+Restart the PostgreSQL service  
 
 8. Install the contrib utilities from the PostgreSQL distribution 
 
@@ -106,9 +108,10 @@ yum install postgresql11-contrib
 
 9. Install 'pgcrypto' Postgres extension for 'reportportal' database  
 
-PGPASSWORD=<your_rpdbuser_password> psql -U <your_rpdbuser> -d reportportal -c "CREATE EXTENSION pgcrypto;"
+PGPASSWORD=<your_rpdbuser_password> psql -U <your_rpdbuser> -d reportportal -c "CREATE EXTENSION pgcrypto;"  
 
-##### RabbitMQ Installation and configuration  
+
+#### RabbitMQ Installation and configuration  
 
 1. Install Erlang
 
@@ -199,8 +202,9 @@ rabbitmqctl set_permissions -p / <your_rpmquser> ".*" ".*" ".*"
 rabbitmqctl add_vhost analyzer
 rabbitmqctl set_permissions -p analyzer <your_rpmquser> ".*" ".*" ".*"
 ```
+  
 
-##### Elasticseach Installation  
+#### Elasticseach Installation  
 
 The recommended way to install Elasticsearch on CentOS 7 is by installing the rpm package from the official Elasticsearch repository  
 
@@ -289,7 +293,7 @@ The output will look similar to the following
 ```
 
 
-### Download all ReportPortal services & traefik config file
+### Download all ReportPortal services & Traefik config file  
 
 1. Run the following script 'download_services.sh'(https://github.com/reportportal/shell-installation/blob/master/reportportal/download_services.sh) in order to have all RP services and configuration files on your local system    
 
@@ -328,19 +332,15 @@ SERVICE_UAT_JAVA_OPTS="-Xms512m -Xmx512m"
 ./start_rp.sh 
 ```
 
+It take some time to initialize your RP installation.  
+
 
 ### Check your ReportPortal installation available
 
-```sh
-http://localhost:3000
+Open http://YOUR_PUBLIC_IP:3000 page in your browser. Defalut login and password is:
+
 ```
-
-or
-
-```sh
-http://<your_public_ip>:3000
+default
+1q2w3e
 ```
-
-
-
 
