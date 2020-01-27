@@ -37,4 +37,4 @@ RP_DB_HOST=localhost java $SERVICE_UAT_JAVA_OPTS -jar service-uat.jar 2>&1 &
 cd ui/ && RP_STATICS_PATH=../public RP_SERVER_PORT=3000 ./service-ui 2>&1 &
 
 # service-analyzer
-AMQP_URL="amqp://$RP_RABBITMQ_USER:$RP_RABBITMQ_PASSWORDR@localhost:5672" ./service-analyzer 2>&1 &
+AMQP_URL="amqp://$RP_RABBITMQ_USER:$RP_RABBITMQ_PASSWORD@localhost:5672" ./service-analyzer 2>&1 &
