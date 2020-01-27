@@ -339,7 +339,7 @@ It take some time to initialize your RP installation.
 
 ### Check your ReportPortal installation available
 
-Open http://YOUR_PUBLIC_IP:3000 page in your browser. Defalut login and password is:
+Open http://YOUR_PUBLIC_IP:8080 page in your browser. Defalut login and password is:
 
 ```
 default
