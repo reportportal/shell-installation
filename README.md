@@ -84,7 +84,7 @@ create user <your_rpdbuser> with encrypted password '<your_rpdbuser_password>';
 
 ```sh
 grant all privileges on database reportportal to <your_rpdbuser>;
-ALTER USER rpuser WITH SUPERUSER;
+ALTER USER <your_rpdbuser> WITH SUPERUSER;
 ```
 
 7. Change your PostgreSQL authentication methods  
