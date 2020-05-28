@@ -28,10 +28,10 @@ PGPASSWORD=$RP_POSTGRES_PASSWORD psql -U $RP_POSTGRES_USER -d reportportal -a -f
 RP_SERVER_PORT=9000 LB_URL=http://localhost:8081 ./service-index 2>&1 &
 
 # service-api
-RP_AMQP_HOST=localhost RP_DB_HOST=localhost java $SERVICE_API_JAVA_OPTS -jar service-api.jar 2>&1 &
-
+RP_AMQP_HOST=localhost RP_AMQP_USER=$RP_RABBITMQ_USER RP_AMQP_PASS=$RP_RABBITMQ_PASSWORD RP_DB_USER=$RP_POSTGRES_USER RP_DB_PASS=$RP_POSTGRES_PASSWORD RP_DB_HOST=localhost java $SERVICE_API_JAVA_OPTS -jar service-api.jar 2>&1 &
+​
 # service-uat
-RP_DB_HOST=localhost java $SERVICE_UAT_JAVA_OPTS -jar service-uat.jar 2>&1 &
+RP_DB_HOST=localhost RP_DB_USER=$RP_POSTGRES_USER RP_DB_PASS=$RP_POSTGRES_PASSWORD java $SERVICE_UAT_JAVA_OPTS -jar service-uat.jar 2>&1 &
 
 # service-ui
 cd ui/ && RP_STATICS_PATH=../public RP_SERVER_PORT=3000 ./service-ui 2>&1 &
