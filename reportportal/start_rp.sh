@@ -22,7 +22,7 @@ RP_RABBITMQ_PASSWORD=<your_rpmquser_password>
 ./traefik --configFile=traefik.toml 2>&1 &
 
 # service-migrations
-PGPASSWORD=$RP_POSTGRES_PASSWORD psql -U $RP_POSTGRES_USER -d reportportal -a -f migrations/migrations/1_initialize_schema.up.sql -f migrations/migrations/2_initialize_quartz_schema.up.sql -f migrations/migrations/3_default_data.up.sql 2>&1 &
+PGPASSWORD=$RP_POSTGRES_PASSWORD psql -U $RP_POSTGRES_USER -d reportportal -a -f migrations/migrations/0_extensions.up.sql -f migrations/migrations/1_initialize_schema.up.sql -f migrations/migrations/2_initialize_quartz_schema.up.sql -f migrations/migrations/3_default_data.up.sql 2>&1 &
 
 # service-index
 RP_SERVER_PORT=9000 LB_URL=http://localhost:8081 ./service-index 2>&1 &
